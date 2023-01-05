@@ -1,5 +1,7 @@
 package com.spring.ojas.SpringGitPractise.studentService;
 
-public interface studentService {
+import com.spring.ojas.SpringGitPractise.model.Student;
 
+public interface studentService {
+	public void updateStudent(Student student);
 }

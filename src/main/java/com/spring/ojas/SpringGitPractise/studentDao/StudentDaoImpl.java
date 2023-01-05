@@ -1,5 +1,7 @@
 package com.spring.ojas.SpringGitPractise.studentDao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,25 @@ public class StudentDaoImpl implements StudentDao {
 	public void updateStudent(Student student) {
 		hibernateTemplate.saveOrUpdate(student);
 		
+	}
+
+	@Override
+	public void deleteStudent(int studentId) {
+		Student student=hibernateTemplate.get(Student.class, studentId);
+		hibernateTemplate.delete(student);
+		
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+	  
+		return hibernateTemplate.loadAll(Student.class);
+	}
+
+	@Override
+	public Student getById(int studentId) {
+		
+		return hibernateTemplate.get(Student.class, studentId);
 	}
 
 }
